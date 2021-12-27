@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customArray</title>
+</head>
+<body>
+    <h1>custom Array1</h1>
+</body>
+</html>
+<script>
+    var array = new myArray("santosh","sangappa","Konappanavar","its my full name");
+    console.log(array)
+
+    function myArray(){
+        Object.defineProperty(this,length,{
+            value:0,
+            Writable:true,
+            enumerable:false,
+        });
+        this.length=arguments.length;
+        for(var i=0;i<this.length;i++){
+            this[i]=arguments[i]
+        }
+    }
+    myArray.prototype.push=function(value){
+
+    let index = this.length;
+
+    this[index] = value;
+
+    this.length++;
+};
+array.push("my sister");
+array.push("sangeeta");
+array.push("my friend");
+array.push("siddu");
+
+
+myArray.prototype.pop=function(){
+
+let index1 = this.length-1;
+delete this[index1]
+this.length--;
+};
+array.pop();
+</script>

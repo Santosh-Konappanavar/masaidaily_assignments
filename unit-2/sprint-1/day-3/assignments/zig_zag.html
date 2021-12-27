@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>zig</title>
+        <style>
+            body{
+                margin: auto;
+                width:600px;
+                margin-top: 50px;
+            }
+        .box{
+            display: flex;
+            margin: 15px; 
+        }
+        .box div{
+            flex-direction: column;
+            margin: 10px;
+            background-color: lightseagreen;
+            border-radius:5px lightseagreen;
+            padding: 60px;
+        }
+        #box1{
+            flex-grow:2;
+           
+        }
+        #box2{
+            flex-grow:1;
+        }
+        #box3{
+            flex-grow:1;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div></div>
+            <div id="box1"></div>
+            <div ></div>
+        </div>
+        <div class="box">
+            <div id="box2"></div>
+            <div></div>
+            <div ></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div  id="box3"></div>
+        </div>
+    </body>
+</html>

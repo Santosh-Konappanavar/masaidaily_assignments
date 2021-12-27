@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Delivery Services Across The U.S | Freshly</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: #303030;
+        }
+        .nav{
+            background-color: #fffdf7;
+            display: flex;
+            flex-direction: row;
+            height: 60px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            position: sticky;
+            cursor: pointer;
+        }
+        .nav > div{
+            margin: 10px;
+        }
+        .nav > div:nth-child(1){
+            padding: 6px;
+        }
+        .nav > div:nth-child(2){
+            flex-basis: 100%;
+            text-align: center;
+            margin-right: -250px;
+        }
+        .nav > div:nth-child(2) >div{
+            display: inline-block;
+            vertical-align: middle;
+            margin: 10px;
+        }
+        .nav > div:nth-child(2) >div >a:hover,.nav > div:nth-child(3) >div >a:hover{
+            color:#437dfc;
+        }
+        .image-nav{
+            width: 105px;
+        }
+        .nav > div:nth-child(3){
+            display: flex;
+            flex-direction: row;
+            flex-basis: 15%;
+        }
+        .nav > div:nth-child(3) > div{
+            margin: 12px;
+        }
+        .navbutton{
+            margin-top: -30px;
+            padding: 8px;
+            background-color: #437dfc;
+            color: white;
+            font-weight: bolder;
+            width: 100px;
+            height: 40px;
+            cursor: pointer;
+        }
+        .navbutton:hover,.mainbox2 >div:nth-child(2) >div > div > button:hover{
+            background-color: #3466d3;
+            transform: translate(0px,-2px);
+            transition: 0.5s;
+        }
+        #main{
+            margin: auto;
+        }
+        .mainbox12{
+            background-color: #fef9ea;
+            width: 50%;
+            padding: 40px;
+        }
+        .mainbox12 > div{
+            padding: 10px;
+        }
+        .font{
+            font-size: 40px;
+            line-height: 44px;
+            color: #333;
+        }
+        .meals{
+            font-size: 20px;
+            font-weight: 700;
+            box-sizing: border-box;
+            display: block;
+            line-height: 1.43em;
+        }
+        #email{
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 700px;
+            margin-bottom: -10px;
+        }
+        #top{
+          margin-bottom: -10px;
+        }
+        .signinform{
+            margin-top:16px;
+            width: 100%;
+        }
+        #input1{
+            width: 99%;
+            height: 40px;
+            border:1px solid transparent #d0d0d0;
+            background-color: #f7f7f7;   
+            font-size: 14px;
+        }
+       
+        .passcode{
+            display: flex;
+            flex-direction: row;
+            margin-top: 25px;
+        }
+        .passcode > div:nth-child(1){
+            flex-basis: 80%;
+            margin-right: 15px;
+
+        }
+        .passcode > div:nth-child(2){
+            flex-basis:40%;
+        }
+       .passcode > div:nth-child(1)>input{
+           width: 100%;
+           height:40px;
+            border:1px solid transparent #d0d0d0;
+            background-color: #f7f7f7;  
+            font-size: 15px;
+       }
+       .passcode > div:nth-child(2)>input:hover{
+           background-color: royalblue;
+       }
+       .passcode > div:nth-child(2)>input{
+           width: 100%;
+           height: 44px;
+            border:1px solid  #3167ff;
+            background-color: #437dfc;
+            color: white;
+            font-size: 20px;
+       }
+       .mainbox2 >div:nth-child(1){
+           margin: 60px auto 40px;
+           text-align: center;
+       }
+       .mainbox2 >div:nth-child(1)>h1{
+           font-size: 48px;
+       }
+       .mainbox2 >div:nth-child(1) > p{
+           font-size: 20px;
+       }
+       .mainbox2 > div:nth-child(2){
+           display: flex;
+           flex-direction: row;
+           margin: auto;
+           padding:0 35px 0 40px;
+           text-align: center;
+       }
+       .mainbox2 >div:nth-child(3) {
+           text-align: center;
+       }
+       .mainbox2 >div:nth-child(2) >div {
+           border: 5px solid whitesmoke;
+           padding:10px;
+           text-align: center;
+           padding-top: 60px;
+           margin: 17px;
+        
+       }
+       .mainbox2 >div:nth-child(2) > div >div:nth-child(3){
+           margin-bottom: 35px;
+           margin-top: 25px;
+       }
+       .mainbox2 >div:nth-child(2) > div >div>p{
+          color: gray;
+       }
+       .mainbox2 >div:nth-child(2) >div >div{
+           line-height: 1.78em;
+           margin: 10px;
+       }
+       .mainbox2 >div:nth-child(2) >div > div > button{
+             width:180px;
+           height: 40px;
+           background-color: #437dfc;
+           color: white;
+           font-size: 18px;
+       }
+       .footerbox h3{
+        color: gray;
+        font-size: 17px;
+        font-weight: bolder;
+    }
+       #footer{
+        margin-top: 50px;
+        padding: 50px;
+       }
+       .footerbox{
+           bottom: 0;
+           position: fixed;
+           margin: auto;
+           position: sticky;
+           display: flex;
+           flex-direction: row;
+           width: 80%;
+           margin: auto;
+           margin-right:45px;
+       }
+       .footerbox >div{
+           flex-basis:1;
+           width: 100%;
+           line-height: 1.8em;
+       }
+       .footerbox >div:nth-child(2),.footerbox >div:nth-child(3),.footerbox >div:nth-child(1),.footerbox >div:nth-child(4){
+          font-size: 13px;
+          color:#666;
+          font-weight: 400;
+       }
+       .footerbox >div > div{
+           margin-bottom: 15px;
+           font-size: 16px;
+           color: #333;
+           font-weight: 400;
+       } 
+       .footerbox >div:nth-child(1)>div>p{
+           font-size: 10px;
+           margin-top: -8px;
+           color: gray;
+       }
+     
+       .image-footer{
+           width: 20px;
+           height: 20px;
+           background-color: whitesmoke;
+       }
+       .image-footer1{
+           width: 120px;
+           height: 40px;
+       }
+           .footerbox >div:nth-child(2),.footerbox >div:nth-child(3),.footerbox >div:nth-child(1),.footerbox >div:nth-child(4){
+          font-size: 13px;
+          color:#666;
+          font-weight: 400;
+       }
+       .sponser{
+           margin-top: 20px;
+           display: grid;
+           gap: 50px;  
+           background-color: whitesmoke;
+           align-items: center;
+          
+       }
+       .sponser >div{
+           cursor: pointer;
+       }
+       .sponser >div:nth-child(1){
+           grid-area: a;
+       }
+       .sponser >div:nth-child(2){
+           grid-area: b;
+       }
+       .sponser >div:nth-child(3){
+           grid-area: c;
+       }
+       .sponser >div:nth-child(4){
+           grid-area: d;
+       }
+       .sponser >div:nth-child(5){
+           grid-area: e;
+       }
+       .sponser >div:nth-child(6){
+           grid-area: f;
+       }
+
+
+       #smallboxmenu{
+            padding: 20px;
+            text-align: center;
+        }
+        #smallboxmenu1{
+            border: 4px solid whitesmoke;
+        }
+        .box{
+            display: flex;
+            flex-direction: row;
+        }
+        .box > div{
+            border: 1px solid gray;
+            width:100%;
+            padding: 15px 0 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight:500;
+        }
+        .box > div:hover{
+            background-color: #437dfc;
+            color: white;
+        }
+        #smallboxmenu1 > div {
+            margin: 15px;
+            font-family:sans-serif;
+        }
+        #smallboxmenu1 > div:nth-child(1){
+            font-size: 19px;
+            line-height: 1.78em;
+            font-weight: 300;
+           
+        }
+        #smallboxmenu1 > div:nth-child(3){
+            font-size: 31px;
+            line-height: 1.78em;
+            font-weight: bolder;
+        }
+        #smallboxmenu1 > div:nth-child(4){
+            line-height: 1.78em;
+            color: gray;
+        }
+        #smallboxmenu1 > div:nth-child(5){
+            line-height: 2em;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+        #smallboxmenu1 > div:nth-child(6){
+            line-height: 2em;
+            margin-top: 40px;
+            padding: 7px;
+            background-color: #437dfc;
+            color: white;
+            font-weight: 500;
+            font-size: 18px;
+        }
+        #smallboxmenu1 > div:nth-child(6):hover{
+            background-color: royalblue;
+            transform:translateY(-1px)
+            
+        }
+
+        @media (min-width:400px) {
+            .sponser{
+                grid-template:"a b"
+                                "c d"
+                                "e f";
+            }
+           
+            .nav > div:nth-child(3){
+            margin-left: 162px;
+            }
+            #footer{
+                margin-top: 0px;
+            }
+            .footerbox > div > a > p{
+           margin-bottom: 10px;
+           font-size: 17px;
+           color: gray;
+           font-weight: 500;
+           white-space: wrap;
+       }
+            .non{
+                display: none;
+            }
+            .image-footer2,.image-footer1{
+                float: left;
+                padding: 2px;
+              margin-left: 20px;
+            }
+            .footerbox{
+                flex-direction: column;
+                text-align: center;
+            }
+            .mainbox2 >div:nth-child(2){
+                display: none;
+            }
+            .mainbox2 >div:nth-child(1)>h1{
+                line-height: 1.1em;
+            }
+            .mainbox2 >div:nth-child(1){
+                width:100%
+            }
+            .mainbox1{
+            background-image: url("https://assets-global.website-files.com/5d03b4e130118314af624b20/5d9282e1d3e06c159fc47ad5_home_image-small.jpg");
+            background-size:cover;
+            height:650px;
+        }
+        .mainbox12{
+            width:fit-content
+        }
+        .passcode > div:nth-child(1),#input1,.meals,.top,#email{
+            display: none;
+        }
+        .passcode > div:nth-child(2)>input{
+            margin-top: -30px;
+        }
+        .font{
+            text-align:left;
+            font-size: 39px;
+        }
+        .footerbox >div:nth-child(4)> div:nth-child(2)>a{
+           margin:10px;
+       }
+       .menu{
+            display: none;
+        }
+        #onthemenuboxs{
+                grid-template:"a b "
+                 "c d "
+                  "e f";
+            }
+            
+            #smallboxmenu{
+                display: unset;
+            }
+        .mainbox12{
+            padding-bottom:0px;
+        }
+        .newone{
+            display: none;
+            margin-top: 2px;
+        }
+        }
+        @media (min-width:1024px) {
+            .mainbox12{
+            padding-bottom: 200px;
+        }
+            #smallboxmenu{
+                display: none;
+            }
+            .sponser{
+                grid-template:"a b c d e f";
+                height: 200px;
+            }
+            .footerbox > div > a > p{
+           margin-bottom: 10px;
+           font-size: 14px;
+       }
+            .footerbox >div:nth-child(4)> div:nth-child(2)>a{
+           margin:3px;
+       }
+     
+            .non{
+                display: unset;
+            }
+            .footerbox{
+                flex-direction: row;
+                text-align: left;
+            }
+            .mainbox2 >div:nth-child(2){
+            display:unset;    
+           display: flex;
+           flex-direction: row;
+           margin: auto;
+           padding:0 35px 0 40px;
+            }
+            .mainbox2 >div:nth-child(1)>h1{
+                line-height: 1.7em;
+            }
+            .mainbox2 >div:nth-child(1){
+                width:58%
+            }
+            .mainbox1{
+            background-image: url("https://assets-global.website-files.com/5d03b4e130118314af624b20/5d9282e1d3e06c159fc47ad5_home_image-small.jpg");
+            background-size:cover;
+            width: 100%;
+            height: fit-content;
+        }
+        .mainbox12{
+            width: 50%;
+            padding: 40px;
+            height: 400px;
+        }
+        .passcode > div:nth-child(1),#input1,.meals,.top,#email{
+           display: unset;
+        }
+        .passcode > div:nth-child(2)>input{
+            margin-top: 9px;
+        }
+        .image-footer2,.image-footer1{
+            margin-left: -2px;
+            clear: left;
+        }
+        .visi{
+            display: none;
+        }
+        .menu{
+            display: unset;
+        }
+        .font{
+            margin-top: 50px;
+            font-size: 50px;
+            margin-bottom: 40px;
+        }
+        #footer{
+                margin-top: 40px;
+            }
+            #onthemenuboxs{
+                grid-template:"a b c "
+                               "d e f";
+            }
+            #onthemenubox > div{
+                width: 700px;
+            }
+            .mainbox12{
+            padding-bottom: 200px;
+        }
+        .newone{
+            display: unset;
+        }
+        }
+
+
+        .onthemenu{
+        background-image:url("https://assets-global.website-files.com/5d03b4e130118314af624b20/5d94e04ff2b857688f7138b6_home_image2.jpg");
+        background-size: cover;
+        padding: 80px;
+        }
+        #onthemenubox >div >h1{
+            font-size: 48px;
+            text-align: left;
+            line-height: 1em;
+        }
+        #onthemenubox >div >p{
+           font-size: 18px;
+           line-height: 1.78em;
+        }
+        #onthemenubox > div{
+            padding: 20px;
+            align-items: center;
+            background-color: white;
+            margin: 30px;
+            line-height: 1.3em;
+            margin: auto;
+        }
+        #onthemenuboxs > div:hover{
+            background-color: whitesmoke;
+        }
+        #onthemenuboxs img{
+            width: 100%;
+        }
+        #onthemenuboxs{
+            display: grid;
+            gap: 30px;
+        }
+        #onthemenuboxs >div:nth-child(1){
+            grid-area: a;
+        }
+        #onthemenuboxs >div:nth-child(2){
+            grid-area: b;
+        }
+        #onthemenuboxs >div:nth-child(3){
+            grid-area: c;
+        }
+        #onthemenuboxs >div:nth-child(4){
+            grid-area: d;
+        }
+        #onthemenuboxs >div:nth-child(5){
+            grid-area: e;
+        }
+        #onthemenuboxs >div:nth-child(6){
+            grid-area: f;
+        }
+        #onthemenuboxs > div{
+            border: 3px solid whitesmoke;
+            text-align: center;
+        }
+        #onthemenuboxs > div >div{
+           padding: 20px 0 30px;
+            height: 40px;
+            margin: 10px;
+            font-size: 15px;
+            font-weight:bolder;
+        }
+        #onthemenubutton{
+            text-align: center;
+        }
+        #onthemenubutton > button{
+            width: 240px;
+            height: 50px;
+            font-size: 18px;
+            color: white;
+            font-weight: 600;
+            background-color: #437dfc;
+        }
+        #onthemenubutton > button:hover{
+            background-color: #437dfc;
+            box-shadow:0 1px 2px 0 #6c86f1;
+        }
+        .mainboxbottom{
+            margin-bottom: 50px;
+        }
+        .newone{
+            line-height: 1.78rem;
+            font-size: 14px;
+        }
+        .newone >p>a{
+            color: #437dfc;
+            text-decoration: underline;
+        }
+        .newone >p{
+            margin-top: 20px;
+        }
+        .newone >p:nth-child(2){
+            margin-top: -2px;
+        }
+       
+    </style>
+</head>
+<body>
+    <header class="nav">
+        <div><div>
+            <a href="index.html"><img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5fc4feea074f5b86a6c62285_freshly-logo-R.svg" alt="image" class="image-nav" /></a>
+            </div>
+        </div>
+        <div class="menu">
+           <div><a href="cart.html">Plans & Menu</a></div>
+           <div><a href="">How it Works</a></div>
+           <div><a href="">Gifts</a></div>
+           <div><a href="">Refer a Friend</a></div>
+           <div><a href="">Help</a></div>
+        </div>
+        <div>
+            <div><a href="signin.html">Login</a></div>
+            <div><a href="signup.html"><button class="navbutton">Sign Up</button></a></div>
+        </div>
+    </header>
+    <!-- header completed -->
+    <div id="main">
+
+
+        <div class="mainbox1">
+
+
+            <div class="mainbox12">
+                <div><h1 class="font">Chef cooked,healtyh meals delivered to you.</h1></div>
+                <div class="mainboxbottom">
+                    <div class="meals">See meals available in your area!</div>
+                    <div class="mainbox12form">
+                        <form class="signinform">
+                            <div>
+                                <p id="email">Email Address</p><br/>
+                                <input type="email" placeholder="Freshly@fresly.com" id="input1" />
+                            </div>
+                            <div class="passcode">
+                                <div>
+                                    <p id="top">ZIP Code</p><br/>
+                                    <input type="password" placeholder="111111" id=input2 />
+                                </div>
+                                <div><br/>
+                                    <input type="submit" id="input3" value="Explore Meals" />
+                                </div>
+                            </div>
+                        </form>
+                        <div class="newone">
+                            <p>By continuing, you agree to our <a href="">Terms </a>&nbsp;  and &nbsp; <a href="">Privacy Policy</a></p>
+                            <p>& will receive emails from Freshly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="onthemenu">
+            <div id="onthemenubox">
+            <div><h1>On the menu</h1></div>
+            <div><p>Each Freshly meal is perfectly sized for 1 person to enjoy at 1 sitting. Our fully-prepared meals are delivered fresh, and ready to eat in 3 minutes.</p></div>
+            <div id="anotherbox">
+            <div id="onthemenuboxs"></div>
+            </div>
+            <div id="onthemenubutton">
+                <button>View Plans & Menu</button>
+            </div>
+            </div>
+        </div>
+
+        <div class=mainbox2>
+
+            <div>
+                <h1>Plans that work for you</h1>
+                <p style="margin-top:5px;line-height: 1.3em;">Choose from 4,6,8,10,or 12 meals per week.You can change up your number of meals with every order if you'd like.</p>
+            </div>
+           <div>
+                <div>
+                    <div><h1>4 Meals</h1></div>
+                    <div><p>per week</p></div>
+                    <div><h4>$11.79 / mweal</h4></div>
+                    <div><button id="choose">Choose</button></div>
+                </div>
+                <div>
+                    <div><h1>6 Meals</h1></div>
+                    <div><p>per week</p></div>
+                    <div><h4>$9.99 / mweal</h4></div>
+                    <div><button id="choose">Choose</button></div>
+                </div>
+                <div>
+                    <div><h1>8 Meals</h1></div>
+                    <div><p>per week</p></div>
+                    <div><h4>$9.49 / mweal</h4></div>
+                    <div><button id="choose">Choose</button></div>
+                </div>
+                <div>
+                    <div><h1>10 Meals</h1></div>
+                    <div><p>per week</p></div>
+                    <div><h4>$9.29 / mweal</h4></div>
+                    <div><button id="choose">Choose</button></div>
+                </div>
+                <div>
+                    <div><h1>12 Meals</h1></div>
+                    <div><p>per week</p></div>
+                    <div><h4>$8.99 / mweal</h4></div>
+                    <div><button id="choose">Choose</button></div>
+                </div>
+            </div>
+           
+
+            <div id="smallboxmenu">
+                <div id="smallboxmenu1">
+                <div><p>Meals per week:</p></div>
+                <div class="box">
+                    <div onclick="shownum('4')" style="background-color: #437dfc;">4</div>
+                    <div onclick="shownum('6')" >6</div>
+                    <div onclick="shownum('8')" >8</div>
+                    <div onclick="shownum('10')" >10</div>
+                    <div onclick="shownum('12')"  >12</div>
+                </div>
+                <div id="nummeals">4 Meals</div>
+                <div id="week">per week</div>
+                <div id="price1">$ 11.79 / meal</div>
+                <div id="mealsbutton">Select The $ 4 Meal Plan</div>
+                </div>
+            </div>
+            <div style="text-align: center;"><p >Shipping Added At Checkout</p></div>
+        </div>
+
+
+    </div>
+    <div class="sponser">
+        <div>
+            <img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f523e435aee2e3a4ab03e6f_The_Huffington_Post_logo.svg" />
+        </div>
+        <div>
+            <img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f523e412d98cd166a6c84e6_logo-header.64f3bdc15b1f321829f9f30c7853a1469f469d71.svg" /> 
+        </div>
+        <div>
+            <img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f523e436b26e00a240533b1_Entrepreneur-01.svg" />
+        </div>
+        <div>
+            <img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f523e432759db28ffaf924f_w-g-logo-black.svg" />
+        </div>
+        <div>
+            <img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f523f552759db186baf93d2_techcrunch-seeklogo.com%20%5BConverted%5D.svg" />
+        </div>
+        <div>
+            <img  src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f523e434bbecc1909457f48_logo-header.aeb2e510354d524c42a87c5d0a97d0a73c5d7581.svg" /> 
+        </div>
+    </div>
+
+
+    <!-- footer part here -->
+
+    <div id="footer">
+
+
+        <div class="footerbox">
+
+        <div class="non">
+            <div><a href="index.html"><img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5fc4feea074f5b86a6c62285_freshly-logo-R.svg" alt="image not found" class="image-nav" /></a></div>
+            <div><p>@ Freshly Inc</p></div>
+        </div>
+
+        <div>
+            <div>
+            <h3 class="non">Company</h3></div>
+            <a href=""><p>Careers</p></a>
+            <a href=""><p>Contact Us</p></a>
+            <a href=""><p>Press</p></a>
+            <a href=""><p>Terms</p></a>
+            <a href=""><p>Privacy</p></a>
+            <!-- <a href=""><p class="non">Affilates</p></a> -->
+            <!-- <a href=""><p class="non">Partnership</p></a> -->
+        </div>
+
+        <div id="learn">
+            <div >
+            <h3 class="non">Learn More</h3></div>
+            <!-- <a href=""><p class="non"> Plans & Menu</p></a>
+            <a href=""><p class="non">Why Freshly?</p></a> -->
+            <a href=""><p class="non">Fifts</p></a>
+            <a href=""><p>FAQs</p></a>
+            <a href=""><p>Blog</p></a>
+            <a href=""><p>Students</p></a>
+        </div>
+
+        <div>
+            <div>
+            <h3 class="non">Join us</h3></div>
+            <div>
+                <a href=""><img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f52423bbc67c09879c5a19b_5d795c37fedbb6017d824b02_icons8-facebook-old-30.jpg" class="image-footer" /></a>
+                <a href=""><img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f52423ad92101de48f410c7_5d10dfc0ef515f74b875a42c_icons8-instagram-50.jpg" class="image-footer"/></a>
+                <a href=""><img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f52423bd050163202b341e8_5d10dfc00442bfc99d3d6828_icons8-twitter-filled-50.jpg" class="image-footer" /></a>
+                <a href=""><img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5f52423a6b26e039d505425e_5d10dfbfef515faad975a42b_icons8-pinterest-filled-50.jpg" class="image-footer" /></a>
+            </div>
+            <div><a href=""><img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5d6439d4fb92e7630e46976b_Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" class="image-footer2" /></a></div>
+            <div><a href=""><img src="https://assets-global.website-files.com/5d03b4e130118314af624b20/5d643dd558306bfe1df5ef8b_google-play-badge-p-500.png" class="image-footer1" /></a></div>
+        </div>
+        <div class="visi"><p>@ Freshly Inc</p></div>
+       </div>
+
+
+
+    </div>
+    <!-- footer end -->
+    <script>
+       let buttons=document.getElementsByTagName("button");
+     for(var i=0;i<buttons.length;i++){
+         buttons[i].addEventListener("click",cart1)
+     }
+       function cart1(){
+            window.location.href="cart.html";
+        }
+
+        let data= [
+    {
+      img: "https://res.cloudinary.com/freshly/image/upload/c_fill,dpr_2,f_auto,w_580/v1608747288/production-meal-image-29fee2e7-8e88-4cd3-aad9-0e7d25671f7f.jpg",
+      name: "Steak Peppercorn",
+    },
+    {
+      name: "Homestyle Chicken",
+      img: "https://res.cloudinary.com/freshly/image/upload/c_fill,dpr_2,f_auto,w_580/v1602723110/production-meal-image-0a78bae3-2e0c-4ab7-b420-154ed262d4d0.jpg",
+    
+    },
+    {
+      name: "Cauliflower Shell Beef Bolognese",
+      img: "https://res.cloudinary.com/freshly/image/upload/c_fill,dpr_2,f_auto,w_580/v1625862402/production-meal-image-2d69b7cf-1233-428f-a8b4-bc9f77559500.jpg",
+ 
+    },
+    {
+      name: "Sausage Baked Penne",
+ 
+      img: "https://res.cloudinary.com/freshly/image/upload/c_fill,dpr_2,f_auto,w_580/v1611760579/production-meal-image-aba62473-4c2a-4708-a0c1-3ed792dc70c9.jpg",
+     
+    },
+    {
+      name: "Savory-Sweet Chicken Teriyaki Bowl",
+      img: "https://res.cloudinary.com/freshly/image/upload/c_fill,dpr_2,f_auto,w_580/v1631655768/production-meal-image-a9a473c8-c1e0-4b3e-a6f8-ffcbc4e8b21c.jpg",
+    },
+    {
+      name: "Protein-Packed Chicken Parm",
+      img: "https://res.cloudinary.com/freshly/image/upload/c_fill,dpr_2,f_auto,w_580/v1607770959/production-meal-image-7a62bb89-9bcb-4f1f-9f0f-d8372698d48e.jpg",
+    },
+];
+        let items=document.getElementById("onthemenuboxs");
+        function showproduct(data){
+            data.forEach(function(product){
+                let divs=document.createElement("div");
+                let img=document.createElement("img");
+                img.src=product.img;
+                let name=document.createElement("div");
+                name.textContent=product.name;
+                divs.append(img,name);
+                items.append(divs);
+            })
+        }
+        showproduct(data);
+
+        function shownum(num){
+        let a=document.getElementById("nummeals");
+        let b=document.getElementById("price1");
+        let c=document.getElementById("mealsbutton");
+        var arr1=[4,6,8,10,12]
+        var arr=[11.79,9.99,9.49,9.29,8.99];
+        for(var i=0;i<arr.length;i++){
+            if(num==arr1[i]){
+                b.textContent="$"+" "+arr[i]+" "+"/"+" "+"meal";
+            }
+        }
+        a.textContent=num+" "+"Meals";
+        c.textContent="Select The"+" "+num+" "+"Meal"+"Plan";
+    }
+       let small=document.getElementById("mealsbutton");
+       small.addEventListener("click",opencart);
+       function opencart(){
+           window.location.href="cart.html"
+       }
+    </script>
+</body>
+</html>

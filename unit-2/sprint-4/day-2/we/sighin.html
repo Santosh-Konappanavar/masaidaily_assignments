@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+</head>
+<body>
+    <h1>signin</h1>
+    <form onsubmit="signin(e)" id="myform" action="">
+        <input type="text" placeholder="Email" id="email" />
+        <input type="password" placeholder="Password" id="password"/>
+        <input type="submit"  />
+    </form>
+</body>
+</html>
+<script>
+       function signin(e){
+        e.preventDefault();
+        let myform = document.getElementById("myform");
+        let email = myform.email.value;
+        let password =myform.password.value;
+
+        let all_users = JSON.parse(localStorage.getItem("users"));
+        all_users.forEach(function(user){
+            if(email === user.email  && password === user.password){
+                alert("submitted successfully");
+                // window.location.href = "index.html";
+            }else  if(email ==""  && password == ""){
+                alert("no")
+            }
+        });
+    }
+</script>

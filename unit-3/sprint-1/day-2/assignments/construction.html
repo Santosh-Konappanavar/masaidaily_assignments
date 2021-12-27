@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+<body>
+    <h1>Inheritance</h1>
+</body>
+</html>
+<script>
+    let Myfamily ={
+        sirname:"konappanavar",
+        skincolor:"black",
+        stay:"in hut",
+        eyescolor:"brown",
+        finantialy:"not fit"
+    }
+    let grandfather = Object.create(Myfamily);
+    grandfather.name="tammanna"
+    let myFather = Object.create(grandfather);
+    let iAm = Object.create(myFather)
+    myFather.name="sangappa"
+    iAm.name="santosh";
+    console.log(iAm);
+    function names(n){
+        this.name = n;
+    }
+    names.prototype = Myfamily;
+    let Grandfather =new names("tammanna");
+    let MyFather = new names("Sangappa");
+    let IAm = new names("Santosh");
+    console.log(Grandfather);
+    console.log(MyFather);
+    console.log(IAm);
+    var array = new myArray("santosh","sangappa","Konappanavar","its my full name");
+    function myArray(){
+        Object.defineProperty(this,"length",{
+         value:0,
+         writable:true,
+         enumerable:false,
+    });
+        this.length=arguments.length;
+        for(var i=0;i<this.length;i++){
+            this[i]=arguments[i]
+        }
+    }
+    myArray.prototype.push=function(value){
+
+    let index = this.length;
+
+    this[index] = value;
+
+    this.length++;
+};
+array.push("my sister");
+array.push("sangeeta");
+array.push("my friend");
+array.push("siddu");
+
+
+myArray.prototype.pop=function(){
+
+let index1 = this.length-1;
+delete this[index1]
+this.length--;
+};
+array.pop();
+array.pop();
+console.log(Object.values(array))
+let a=Object.values(array);
+console.log("Intial:",a)
+const  b=a.reverse();
+console.log("reversed:",b);
+console.log(b[0])
+
+
+</script>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hindu</title>
+    <style>
+        .box{
+         display: grid;
+         justify-content:safe;
+         gap: 25px;
+         background-color:#a2e0a6;
+         margin: auto;
+         padding: 20px;
+        }
+        .box > div{
+            border: 1px solid red;
+            width: 100%;
+            background-color: whitesmoke;
+        }
+        .box > div:nth-child(1){
+            grid-area: a;
+            background-image: url("https://via.placeholder.com/350x300");
+            background-size:cover;
+        }
+        .box >div > div:nth-child(1){
+            margin-top: 360px;
+            display: inline-block;
+            vertical-align: bottom;
+           background-color: royalblue;
+           width: 100%;
+        }
+        .box >div:nth-child(2){
+            grid-area: b;
+           margin: auto;
+        }
+        .box >div:nth-child(3){
+            grid-area: c;
+            margin: auto;
+            
+        }
+        .box >div:nth-child(4){
+            grid-area: d;
+            margin: auto;
+        }
+        .box >div:nth-child(5){
+            grid-area: e;
+            margin: auto;
+        }
+        .box >div:nth-child(6){
+            grid-area: f;
+            margin: auto;
+        }
+        @media (min-width:400px) {
+          .box{
+              grid-template:"a "
+                              "b "
+                              "c"
+                              "d"
+                              "e"
+                              "f";
+          }
+          .box >div:nth-child(6){
+              display:unset;
+          }
+        }
+        @media (min-width:786px) {
+          .box{
+              grid-template:"a a"
+                              "b c"
+                              "d e";
+          }
+          .box >div:nth-child(6){
+              display: none;
+          }
+        }
+        @media (min-width:1024px) {
+          .box{
+              grid-template:"a b"
+                              "a c"
+                              "a d"
+                              "e f";
+          }
+          .box >div:nth-child(6){
+              display:unset;
+          }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div><div><h2>Ahmedabad joint rally with Trump will<br/> be historic,says Modi</h2><p>KILLOL BATTACHARJEE</p>
+            <p>SUHASINI HAIDAR</p>
+        <p>U>S President to visit Sabaramati ashram ahead of "Namste Trump"event</p></div></div>
+            <div><img src="https://via.placeholder.com/150x150" /></div>
+            <div><img src="https://via.placeholder.com/150x150" /></div>
+            <div><img src="https://via.placeholder.com/150x150" /></div>
+            <div><img src="https://via.placeholder.com/150x150" /></div>
+            <div><img src="https://via.placeholder.com/150x150" /></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #smallboxmenu{
+            padding: 20px;
+            text-align: center;
+        }
+        #smallboxmenu1{
+            border: 4px solid whitesmoke;
+        }
+        .box{
+            display: flex;
+            flex-direction: row;
+        }
+        .box > div{
+            border: 1px solid gray;
+            width:100%;
+            padding: 15px 0 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight:500;
+        }
+        .box > div:hover{
+            background-color: #437dfc;
+            color: white;
+        }
+        #smallboxmenu1 > div {
+            margin: 15px;
+            font-family:sans-serif;
+        }
+        #smallboxmenu1 > div:nth-child(1){
+            font-size: 19px;
+            line-height: 1.78em;
+            font-weight: 300;
+           
+        }
+        #smallboxmenu1 > div:nth-child(3){
+            font-size: 31px;
+            line-height: 1.78em;
+            font-weight: bolder;
+        }
+        #smallboxmenu1 > div:nth-child(4){
+            line-height: 1.78em;
+            color: gray;
+        }
+        #smallboxmenu1 > div:nth-child(5){
+            line-height: 2em;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+        #smallboxmenu1 > div:nth-child(6){
+            line-height: 2em;
+            margin-top: 40px;
+            padding: 7px;
+            background-color: #437dfc;
+            color: white;
+            font-weight: 500;
+            font-size: 18px;
+        }
+        #smallboxmenu1 > div:nth-child(6):hover{
+            background-color: royalblue;
+            transform:translateY(-1px)
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="smallboxmenu">
+        <div id="smallboxmenu1">
+        <div><p>Meals per week:</p></div>
+        <div class="box">
+            <div onclick="shownum('4')" style="background-color: #437dfc;">4</div>
+            <div onclick="shownum('6')" >6</div>
+            <div onclick="shownum('8')" >8</div>
+            <div onclick="shownum('10')" >10</div>
+            <div onclick="shownum('12')"  >12</div>
+        </div>
+        <div id="nummeals">4 Meals</div>
+        <div id="week">per week</div>
+        <div id="price1">$ 11.79 / meal</div>
+        <div id="mealsbutton">Select The $ 4 Meal Plan</div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function shownum(num){
+        let a=document.getElementById("nummeals");
+        let b=document.getElementById("price1");
+        let c=document.getElementById("mealsbutton");
+        var arr1=[4,6,8,10,12]
+        var arr=[11.79,9.99,9.49,9.29,8.99];
+        for(var i=0;i<arr.length;i++){
+            if(num==arr1[i]){
+                b.textContent=arr[i]+" "+"/"+"meal";
+            }
+        }
+        a.textContent=num+"Meals";
+        c.textContent="Select The"+" "+num+" "+"Meal"+"Plan";
+    }
+</script>

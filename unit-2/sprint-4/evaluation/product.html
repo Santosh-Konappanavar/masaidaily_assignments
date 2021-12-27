@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jewellery store</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-gap:5%;
+            
+        }
+        img{
+            width:100%;
+            padding: 10px;
+        }
+        #data div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>jewelery shop</h1>
+<button><a href="cart.html">visit cart</a></button>
+<div id="data"></div>
+<div>
+    <button id="sortprice">price lower to higher</button>
+</div>
+<script>
+   const product=[
+       {
+          name:"gold",
+          price:5000,
+          image:"https://cdn.mos.cms.futurecdn.net/FYjFKKZ65KqMgGUo2EwWER-1200-80.jpeg",
+       },
+       {
+          name:"silver",
+          price:1200,
+          image:"https://4een861gr3ev22id1lsqg8em-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/Silver-iStock_000044435624_Medium.jpg",
+       },
+       {
+          name:"platinum",
+          price:10000,
+          image:"https://m.media-amazon.com/images/I/31UL7M40-9L.jpg",
+       },
+       {
+          name:"diamond",
+          price:20000,
+          image:"https://news.mit.edu/sites/default/files/images/202010/MIT-Metallic-Diamond-01-Press.jpg",
+       },
+   ]; 
+//    conver to json
+   const tojson = JSON.stringify(product);
+//    store it in local store
+   localStorage.setItem("gewelery",tojson);
+//    display on webpage
+let gewelery = localStorage.getItem("gewelery");
+// convert into operatble format,object
+gewelery = JSON.parse(gewelery);
+
+function showproduct(){
+let data_div = document.getElementById("data");
+gewelery.forEach(function(product){
+let div =document.createElement("div");
+let p_name=document.createElement("p");
+p_name.innerText=product.name;
+let p_price=document.createElement("p");
+p_price.innerText=product.price;
+p_price.onclick= function(){
+    sortprice(product);
+}
+let image=document.createElement("img");
+image.src=product.image;
+let btn=document.createElement("button");
+btn.innerText="Add to cart";
+btn.onclick=function(){
+    addtocart(product)
+}
+div.append(image,p_name,p_price,btn);
+data_div.append(div);
+});
+}
+showproduct();
+if(localStorage.getItem("cart")===null){
+    localStorage.setItem("cart", JSON.stringify([]));
+}
+
+function addtocart(p){
+    let cart_data = JSON.parse(localStorage.getItem("cart"));
+    cart_data.push(p);
+    localStorage.setItem("cart", JSON.stringify(cart_data));
+}
+function sortprice(p){
+    let sort_data = JSON.parse(localStorage.getItem("cart"));
+    sort_data.push(sort(p));
+    localStorage.setItem("cart",JSON.stringify(sort_data));
+}
+</script>
+</body>
+</html>

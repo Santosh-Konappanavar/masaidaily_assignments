@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leader bord</title>
+    <style></style>
+</head>
+<body>
+    <div>
+        <div id="mine">43</div>
+        <div id="maxi">2019</div>
+    </div>
+    <div>
+        <div id="score">#</div>
+        <p>SCORE</p>
+    </div>
+     <div id="btns">
+            <button onclick="num('1')">1</button>
+            <button onclick="num('2')">2</button>
+            <button onclick="num('3')">3</button>
+            <button onclick="num('4')">4</button>
+            <button onclick="num('5')">5</button>
+            <button onclick="num('6')">6</button>
+            <button onclick="num('7')">7</button>
+            <button onclick="num('8')">8</button>
+            <button onclick="num('9')">9</button>
+            <button onclick="num('0')">0</button>
+    </div>
+    <button onclick="enter()">ENTER</button>
+    <script>
+        var min=43;
+        var max=2019;
+         var output ="";
+        var display= document.getElementById("score").textContent=output;
+        function num(number){
+            output = output+number;
+           display.textContent=output;
+        }
+        function enter(){
+            var fn=Number(output);
+            if(fn<min){
+                min=fn;
+                document.getElementById("mine").textContent=min;
+            }else if(fn>max){
+                max=fn
+                document.getElementById("maxi").textContent=max;
+            }
+            display.textContent=output;
+            output = "";
+          
+        }
+    </script>
+</body>
+</html>

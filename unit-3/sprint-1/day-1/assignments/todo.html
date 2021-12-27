@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <style>
+        form > div{
+            margin: 10px;
+        }
+        td{
+            border: 1px solid black;
+            padding: 15px;
+            min-height: 100px;
+        }
+        #sub > input{
+            padding: 10px;
+            min-height: 40px;
+            min-width: 150px;
+            color: white;
+            background-color: royalblue;
+        }
+        #divide{
+           display: flex;
+           flex-direction: row;
+        }
+        #divide >div{
+            background-color: lightblue;
+            flex-basis: 100%;
+            margin: 10px;
+        }
+        #total{
+            font-size: 30px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="divide">
+    <div>
+    <form>
+        <div>
+            <label>Name</label>
+            <input type="text" id="name" />
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="text" id="price"> 
+        </div>
+        <div id="sub">
+            <input type="submit" value="submit" />
+        </div>
+    </form>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>price</td>
+            <td>Done</td>
+            <td>Remove</td>
+        </tr>
+    </table>
+</div>
+<div >
+    <p>Total</p>
+    <p id="total">0</p>
+</div>
+</div>
+</body>
+</html>
+<script>
+    let fm=document.querySelector("form");
+    let tb=document.querySelector("table");
+    let total=document.getElementById("total"); 
+    let count=1;
+    fm.addEventListener("submit",additems);
+    function additems(event){
+        event.preventDefault();
+        let name=document.getElementById("name").value;
+        let price=document.getElementById("price").value;
+        if(name.length>0){
+            createrow(name,price);
+            increase();
+        }
+        document.getElementById("name").value="";
+        document.getElementById("price").value="";
+    }
+   function createrow(name,price){
+            let row = document.createElement("tr");
+            let td1 = document.createElement('td');
+            td1.textContent = name;
+            let td2 = document.createElement('td');
+            td2.textContent = price;
+            let td4 = document.createElement("td");
+            td4.textContent = "Done";
+            td4.addEventListener("click", markComplete);
+            let td5 = document.createElement("td");
+            td5.textContent = "Remove";
+            td5.addEventListener("click", makeDelete);
+            row.append(td1,td2,td4,td5);
+            tb.append(row);
+   }
+   function markComplete(e){
+            e.target.removeEventListener("click", markComplete);
+            e.target.parentNode.style.backgroundColor = "whitesmoke";
+
+   }
+   function makeDelete(e) {
+            e.target.parentNode.remove();
+            decrease();
+        }
+   function increase(e){
+            total.textContent=count++
+   }
+   function decrease(){
+         total.textContent=count--;
+   }
+</script>

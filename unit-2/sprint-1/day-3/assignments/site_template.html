@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>layout</title>
+        <style>
+            body{
+                width:900px;
+                margin: auto;
+            }
+         #box{
+             display: grid;
+             grid-gap: 20px;
+             padding:30px;
+             grid-template: "box1 box1 box1 box1"
+                              "box2 box3 box3 box3";
+         }
+         #box1{
+             grid-area: box1;
+             background-color: red;
+             padding: 20px;
+         }
+         #box2{
+             grid-area: box2;
+             background-color:lightgreen;
+             height: 500px;
+         }
+         #box3{
+             grid-area: box3;
+             background-color: darkgreen;
+             height: 500px;
+         }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="box1"></div>
+            <div id="box2"></div>
+            <div id="box3"></div>
+            </div>
+    </body>
+</html>

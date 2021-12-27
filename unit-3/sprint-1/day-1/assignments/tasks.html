@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+</head>
+<body>
+    <form>
+        <div>
+            <label>Name</label>
+            <input type="text" id="name" />
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+    </form>
+   <ol id="list">
+   </ol>
+</body>
+</html>
+<script>
+        // creating construct function
+    
+    let fm=document.querySelector("form");
+    fm.addEventListener("submit",additems);
+    let list=document.getElementById("list");
+    function additems(event){
+        event.preventDefault();
+        let name1=document.getElementById("name").value;
+        let li=document.createElement("li")
+         let p = new task(name1);
+         li.textContent=Object.values(p).join(" ");
+         
+         list.appendChild(li)
+        document.getElementById("name").value="";
+    }
+    function task(n){
+        this.name=n;
+        this.date= new Date().getDay();
+        this.status=false;
+    }
+</script>

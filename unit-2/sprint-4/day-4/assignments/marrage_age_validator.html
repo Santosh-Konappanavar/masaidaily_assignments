@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marrgevalidator</title>
+</head>
+<body>
+      <label>marriage</label>
+      <input type="text" id="age"/>
+      <button onclick="validage()">valid to marry</button>
+    <script>
+       
+        var gender = ["M","F"];
+        var year = document.getElementById("age").value;
+        var age = 2021-Number(year);
+        function validage(){
+            if((age>=18&&gender==gender[1])||(age>=21&&gender==gender[0])){
+                alert("get married");
+            }else{
+                alert("not marry");
+            }
+        }
+    </script>
+</body>
+</html>

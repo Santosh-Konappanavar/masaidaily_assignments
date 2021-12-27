@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leader board</title>
+    <style>
+       #main{
+           width: 600px;
+           margin: auto;
+       }
+        #box{
+            display: flex;
+            flex-direction: row;
+        }
+         h1{
+           margin: 70px;
+           text-align: center;
+           padding: 30px;
+           background-color: blanchedalmond;
+        }
+        h2{
+            border: 2px solid black;
+            margin-left: 50px;
+            width:400px;
+        }
+        #grid{
+            display: flex;
+            flex-direction:column;
+        }
+        #main  button{
+           width: 100px;
+           height: 100px;
+           margin: 30px;
+           font-size: 30px;
+        }
+        #box4{
+            margin-left: 160px;
+        }
+        #santu{
+            width: 380px;
+          
+           margin: auto;
+        }
+        #santu button{
+            width: 250px;
+            height:50px;
+            font-size: 30px;
+        }
+        .safron{
+            background-color: sandybrown;
+        }
+        .green{
+            background-color: springgreen;
+        }
+        .gray{
+            background-color: gray;
+        }
+        .voilet{
+            background-color: indigo;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+    <div id="box">
+    <h1 id="minel" style="background-color: green;">143</h1>
+    <h1 id="maxel" style="background-color: red;">2019</h1>
+    </div>
+    <h2 id="display" class="gray">#</h2>
+    <div id="grid">
+    <div id="box1">
+    <button onclick="btn(1)" class="green">1</button>
+    <button onclick="btn(2)" class="safron">2</button>
+    <button onclick="btn(3)" class="green">3</button>
+    </div>
+    <div id="box2">
+    <button onclick="btn(4)" class="safron">4</button>
+    <button onclick="btn(5)" class="safron">5</button>
+    <button onclick="btn(6)" class="safron">6</button>
+    </div>
+    <div id="box3">
+    <button onclick="btn(7)" class="green">7</button>
+    <button onclick="btn(8)" class="safron">8</button>
+    <button onclick="btn(9)" class="green">9</button>
+    </div>
+    <div id="box4">
+    <button onclick="btn(0)" class="voilet" >0</button>
+</div>
+</div>
+</div>
+<div id="santu">
+    <button onclick="enter()"  >Enter</button>
+</div>
+    <script>
+        var min = 143;
+        var max = 2019;
+        var output = "";
+        var display = document.getElementById("display");
+        function btn(num){
+            output = output+num;
+            display.textContent = output;
+        }
+        
+        function enter(){
+            var fn=Number(output);
+            if(fn<min){
+                min = fn;
+                document.getElementById("minel").textContent = min;
+            }
+            if(fn > max){
+                max =fn;
+                document.getElementById("maxel").textContent = max;
+            }
+            output = "";
+            display.textContent = output;
+        }
+    </script>
+</body>
+</html>

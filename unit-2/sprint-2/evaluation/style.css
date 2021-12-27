@@ -1,0 +1,64 @@
+        #firstbox{
+            width: 1250px;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(3,400px);
+            grid-template-rows: repeat(1,auto);
+            padding: 10px;
+            margin: auto;
+        }
+        #firstbox > div{
+            border: 1px solid gray;
+        }
+        #firstbox > div >img{
+            width: 100%;
+        }
+        #firstbox > div>div{
+            padding-left: 10px;
+        }
+        #firstbox > div >div p:nth-child(3){
+            color: blueviolet;
+        }
+        #gray{
+            color: gray;
+        }
+       .first{
+           width: 1250px;
+           margin: auto;
+           color: grey;
+           font-family: 'Oswald', sans-serif;
+       }
+       .secondbox{
+           width: 1250px;
+           margin: auto;
+           display: grid;
+           gap: 20px;
+           grid-template:"a b c"
+                          "d e f";
+       }
+       .secondbox>div{
+           padding: 10px;
+           width: 380px;
+           border: 1px solid gray;
+       }
+       .secondbox >div:nth-child(1){
+           grid-area: a;
+       }
+       .secondbox >div:nth-child(2){
+           grid-area: b;
+       }
+       .secondbox >div:nth-child(3){
+           grid-area: c;
+       }
+       .secondbox >div:nth-child(4){
+           grid-area: d;
+       }
+       .secondbox >div:nth-child(5){
+           grid-area: e;
+       }
+       .secondbox >div:nth-child(6){
+           grid-area: f;
+       }
+       span{
+           float: right;
+       }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggletask</title>
+    <style>
+        #main{
+           padding: 100px;
+            background-color: aqua;
+        }
+        #toggle{
+            height: 50px;
+            width: 100px;
+            background-color: yellow;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="toggle"></div>
+    </div>
+</body>
+</html>
+<script>
+    let btn=document.getElementById("toggle");
+    btn.addEventListener("mouseenter",toggle_task);
+    function toggle_task(){
+        if(btn.style.background=="yellow"){
+            btn.style.background="red"
+        }else{
+            btn.style.background = "green"
+        }
+    }
+</script>

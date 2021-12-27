@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+<body>
+    <h1>Inheritance</h1>
+</body>
+</html>
+<script>
+    let Myfamily ={
+        sirname:"konappanavar",
+        skincolor:"black",
+        stay:"in hut",
+        eyescolor:"brown",
+        finantialy:"not fit"
+    }
+    let grandfather = Object.create(Myfamily);
+    grandfather.name="tammanna"
+    let myFather = Object.create(grandfather);
+    let iAm = Object.create(myFather)
+    myFather.name="sangappa"
+    iAm.name="santosh";
+    console.log(iAm);
+    function names(n){
+        this.name = n;
+    }
+    names.prototype = Myfamily;
+    let Grandfather =new names("tammanna");
+    let MyFather = new names("Sangappa");
+    let IAm = new names("Santosh");
+    console.log(Grandfather)
+    console.log(MyFather)
+    console.log(IAm)
+</script>

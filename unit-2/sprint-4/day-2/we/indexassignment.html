@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #products{
+            margin: 5% 5% 10% 5%;
+            display: grid;
+            grid-gap: 5%;
+            grid-template-columns: 20% 20% 20% 20%;
+            justify-content: center;
+            
+        }
+        #products > div{
+            text-align: center;
+            background-color: blanchedalmond;
+        }
+        img{
+            width: 50%;
+            height: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Local storage</h1>
+    <div id="products"></div>
+   <a href="cart.html" ><button>Add to Cart</button></a>
+   <button onclick="lowtohigh()">low to high</button>
+   <button onclick="hightolow()">high to low</button>
+</body>
+</html>
+<script>
+    let data= [
+    {
+      name: "shoes",
+      price: "2000",
+      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.sweatband.com%2Fasics_gel-zaraca_4_mens_running_shoes_ss16_asics_gel-zaraca_4_mens_running_shoes-blue-silver-black_angle_view_2000x2000.jpg&f=1&nofb=1",
+    },
+    {
+      name: "Football",
+      price: "1347",
+      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pixel4k.com%2Fwp-content%2Fuploads%2F2018%2F10%2Fsoccer-ball-football-lawn-grass-4k_1540063065.jpg&f=1&nofb=1",
+    },
+    {
+      name: "Watch",
+      price: "9999",
+      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftimeandtidewatches.com%2Fwp-content%2Fuploads%2F2014%2F09%2FMANOFSTEELHaighHastingsWatch-M2-Diver.jpeg&f=1&nofb=1",
+    },
+    {
+      name: "shoes",
+      price: "2000",
+      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.sweatband.com%2Fasics_gel-zaraca_4_mens_running_shoes_ss16_asics_gel-zaraca_4_mens_running_shoes-blue-silver-black_angle_view_2000x2000.jpg&f=1&nofb=1",
+    },
+    {
+      name: "Football",
+      price: "1347",
+      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pixel4k.com%2Fwp-content%2Fuploads%2F2018%2F10%2Fsoccer-ball-football-lawn-grass-4k_1540063065.jpg&f=1&nofb=1",
+    },
+    {
+      name: "Watch",
+      price: "9999",
+      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftimeandtidewatches.com%2Fwp-content%2Fuploads%2F2014%2F09%2FMANOFSTEELHaighHastingsWatch-M2-Diver.jpeg&f=1&nofb=1",
+    },
+    {
+      name: "shoes",
+      price: "2000",
+      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.sweatband.com%2Fasics_gel-zaraca_4_mens_running_shoes_ss16_asics_gel-zaraca_4_mens_running_shoes-blue-silver-black_angle_view_2000x2000.jpg&f=1&nofb=1",
+    },
+    {
+      name: "Football",
+      price: "1347",
+      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pixel4k.com%2Fwp-content%2Fuploads%2F2018%2F10%2Fsoccer-ball-football-lawn-grass-4k_1540063065.jpg&f=1&nofb=1",
+    },
+    {
+      name: "Watch",
+      price: "9999",
+      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftimeandtidewatches.com%2Fwp-content%2Fuploads%2F2014%2F09%2FMANOFSTEELHaighHastingsWatch-M2-Diver.jpeg&f=1&nofb=1",
+    },
+  ];
+  //1.Run the foreach loop on products data and console log indiuasual product names.
+  //2.appemd this data on dom
+  //2.1 createelement 
+  let parent =document.getElementById("products");
+  function showproducts(d) {
+    parent.innerHTML =null;
+  d.forEach(function(products){
+      console.log(products.name);
+      let div = document.createElement("div");
+
+      let img = document.createElement("img");
+      img.src = products.img
+
+      let product_price = document.createElement("p");
+      product_price.textContent = products.price
+
+      let product_name = document.createElement("p");
+      product_name.textContent =products.name;
+
+      let addtocart_btn = document.createElement("button");
+      addtocart_btn.innerHTML = "Add to Cart";
+      
+      addtocart_btn.onclick = function (){
+          addtoCart(products);
+      };
+      div.append(img,product_name,product_price,addtocart_btn);
+      parent.append(div);
+  });
+}
+  showproducts();
+
+
+//check if cart is exist in local storage
+if(localStorage.getItem("cart")==null){
+    localStorage.setItem("cart",JSON.stringify([]));
+}
+  function addtoCart(p){
+    let prod_cart =JSON.parse(localStorage.getItem("cart"));
+    prod_cart.push(p);
+    localStorage.setItem("cart",JSON.stringify(prod_cart))
+    console.log("prod_cart:",prod_cart);
+}
+function lowtohigh(){
+  let arr = data.sort(function(a,b){
+    return a.price - b.price;
+  });
+  showproducts(arr);
+}
+function hightolow(){
+  let arr = data.sort(function(a,b){
+    return b.price - a.price;
+  });
+  showproducts(arr);
+}
+
+</script>

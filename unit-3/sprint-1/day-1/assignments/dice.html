@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice</title>
+</head>
+<body>
+    <button id="dice">Dice</button>
+</body>
+</html>
+<script>
+    let dice=document.getElementById("dice").addEventListener("click",random);
+    function random(){
+        let arr=[1,2,3,4,5,6];
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]===6){
+                arr[i].style.color="green"
+            }else if(arr[i]===1){
+                arr[i].style.color="red"
+            }
+        }
+    }
+    
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <style>
+        input{
+            margin-top: 8%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Signup</h1>
+    <form onsubmit="signup(event)" id="myform" action="">
+        <input type="text" id="name" placeholder="Name" />
+        <input type="text" placeholder="Email" id="email" />
+        <input type="password" placeholder="Password" id="password"/>
+        <input type="submit"  />
+    </form>
+</body>
+</html>
+<script>
+    function signup(e){
+        e.preventDefault();
+        let myform = document.getElementById("myform");
+        let name = myform.name.value;
+        let email = myform.email.value;
+        let password =myform.password.value;
+        if(localStorage.getItem('users')==null){
+            localStorage.setItem("users",JSON.stringify([]));
+        }
+        //grab and prepare user data
+       let user ={
+           name,
+           email,
+           password
+       };
+// get arra fro local storage
+         let arr = JSON.parse(localStorage.getItem("users"));
+         //push user to array
+         arr.push(user)//added a new user
+         localStorage.setItem("users",JSON.stringify(arr))
+         
+    }
+</script>
